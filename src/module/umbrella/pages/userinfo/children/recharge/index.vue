@@ -1,5 +1,5 @@
 <template>
-	<section class="recharge">
+	<section class="recharge" v-title="{title:'充值'}">
 		<form action="" method="post">
 			<ul>
 				<li><img src="../../../../images/icon_money.png"/><input type="text" name="" id="" value="" placeholder="请输入充值金额（元）" maxlength="6" v-model="money" /></li>

@@ -1,5 +1,5 @@
 <template>
-	<section>
+	<section v-title="{title:'个人中心'}">
 		<router-view></router-view>
 	</section>
 </template>

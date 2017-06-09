@@ -1,5 +1,5 @@
 <template>
-	<article class="bind-bc">
+	<article class="bind-bc" v-title="{title:'绑定银行卡'}">
 		<section>
 			<form action="" method="post">
 				<ul>

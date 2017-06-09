@@ -1,5 +1,5 @@
 <template>
-	<article class="pay">
+	<article class="pay" v-title="{title:'支付押金'}">
 		<p><strong>押金</strong><strong>99元</strong></p>
 		<p>为确保用户合规使用UU伞，需交纳相应的押金<br />客户可随时退回押金</p>
 		<section>
