@@ -11,6 +11,7 @@ const SHOW_WITHDRAW = 'SHOW_WITHDRAW'
 const BTNSINGLE_CON = 'BTNSINGLE_CON'
 const BTN_DETAIL = 'BTN_DETAIL'
 const REGISTERED = 'REGISTERED'
+const GET_BORROWED_RECORD = 'GET_BORROWED_RECORD'
 
 export default {
   [GET_DATA] (state, payload) {
@@ -55,5 +56,8 @@ export default {
   },
   [REGISTERED] (state, payload) {
     state.registered = false
+  },
+  [GET_BORROWED_RECORD] (state, payload) {
+    state.borrowData = payload.data
   }
 }

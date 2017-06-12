@@ -19,7 +19,8 @@ const state = {
   btnSingle: false,
   btnSingleCon: '充值成功',
   btnDetail: '',
-  registered: true
+  registered: true,
+  borrowData: '努力里'
 }
 
 export default new Vuex.Store({

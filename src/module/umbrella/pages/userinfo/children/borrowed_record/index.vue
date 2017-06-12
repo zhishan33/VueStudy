@@ -33,8 +33,15 @@
 						<p>业务单号20170605000004</p>
 					</div>
 				</li>
+				<li v-for="item of borrowData">
+					<div v-for="order of item.orderStatus">
+						<p>{{order.time}}</p>
+						<p>{{order.type}}</p>
+						<p>{{order.orderID}}</p>
+					</div>
+				</li>
 			</ul>
-			<p><button type="button">点击加载更多</button></p>
+			<p><button @click="getMore" type="button">点击加载更多</button></p>
 		</template>
 		<template v-else>
 			<p class="null">暂无借还记录</p>
@@ -44,6 +51,20 @@
 </template>
 
 <script>
+export default {
+  name: 'borrowedRecord',
+  computed: {
+    borrowData () {
+      return this.$store.state.borrowData
+    }
+  },
+  methods: {
+    getMore () {
+      this.$store.dispatch('getData')
+      console.log('==============' + JSON.stringify(this.$store.state.borrowData))
+    }
+  }
+}
 </script>
 
 <style lang="scss">
