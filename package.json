@@ -12,6 +12,7 @@
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
     "mock": "json-server --watch mocks/db.json",
+    "mockFaker": "json-server --watch mocks/faker-data.js",
     "mockdev": "npm run mock & npm run dev"
   },
   "dependencies": {

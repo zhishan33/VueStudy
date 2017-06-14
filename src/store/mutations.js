@@ -12,6 +12,7 @@ const BTNSINGLE_CON = 'BTNSINGLE_CON'
 const BTN_DETAIL = 'BTN_DETAIL'
 const REGISTERED = 'REGISTERED'
 const GET_BORROWED_RECORD = 'GET_BORROWED_RECORD'
+const GET_TRADING_RECORD = 'GET_TRADING_RECORD'
 
 export default {
   [GET_DATA] (state, payload) {
@@ -58,6 +59,15 @@ export default {
     state.registered = false
   },
   [GET_BORROWED_RECORD] (state, payload) {
-    state.borrowData = payload.data
+    state.borrowDataAdd = payload.data
+    if (!payload.dataStatus) {
+      state.loadingMSG = '没有更多了'
+    }
+  },
+  [GET_TRADING_RECORD] (state, payload) {
+    state.recordDataAdd = payload.data
+    if (!payload.dataStatus) {
+      state.recordloadingMSG = '没有更多了'
+    }
   }
 }

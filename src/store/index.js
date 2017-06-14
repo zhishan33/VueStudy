@@ -20,7 +20,12 @@ const state = {
   btnSingleCon: '充值成功',
   btnDetail: '',
   registered: true,
-  borrowData: '努力里'
+  borrowData: 'default',
+  loadingMSG: '点击加载更多',
+  borrowDataAdd: null,
+  recordData: 'default',
+  recordloadingMSG: '点击加载更多',
+  recordDataAdd: null
 }
 
 export default new Vuex.Store({

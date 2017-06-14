@@ -27,8 +27,13 @@
 					<p></p>
 					<p></p>
 				</li>
+				<li v-for="item of recordDataAdd">
+					<p><span>{{item.type}}</span><span>{{item.money}}</span></p>
+					<p><time>{{item.time}}</time></p>
+					<p>业务单号{{item.orderID}}</p>
+				</li>
 			</ul>
-			<footer><button type="button">点击加载更多</button></footer>
+			<footer><button @click="getRecordMore" type="button">{{loadingMSG}}</button></footer>
 		</template>
 		<template v-else>
 			<p class="null">暂无交易记录</p>
@@ -37,6 +42,28 @@
 </template>
 
 <script>
+export default {
+  name: 'borrowedRecord',
+  data: function () {
+    return {}
+  },
+  computed: {
+    recordData () {
+      return this.$store.state.recordData
+    },
+    recordDataAdd () {
+      return this.$store.state.recordDataAdd
+    },
+    loadingMSG () {
+      return this.$store.state.recordloadingMSG
+    }
+  },
+  methods: {
+    getRecordMore () {
+      this.$store.dispatch('getRecordData')
+    }
+  }
+}
 </script>
 
 <style lang="scss">
