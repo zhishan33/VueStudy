@@ -13,6 +13,7 @@ const BTN_DETAIL = 'BTN_DETAIL'
 const REGISTERED = 'REGISTERED'
 const GET_BORROWED_RECORD = 'GET_BORROWED_RECORD'
 const GET_TRADING_RECORD = 'GET_TRADING_RECORD'
+const TRIGGER_LOGIN = 'TRIGGER_LOGIN'
 
 export default {
   [GET_DATA] (state, payload) {
@@ -69,5 +70,8 @@ export default {
     if (!payload.dataStatus) {
       state.recordloadingMSG = '没有更多了'
     }
+  },
+  [TRIGGER_LOGIN] (state, payload) {
+    state.registered = !state.registered
   }
 }

@@ -19,7 +19,7 @@ const state = {
   btnSingle: false,
   btnSingleCon: '充值成功',
   btnDetail: '',
-  registered: true,
+  registered: false,
   borrowData: 'default',
   loadingMSG: '点击加载更多',
   borrowDataAdd: null,

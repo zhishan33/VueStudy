@@ -12,11 +12,15 @@ import findNull from '@/module/umbrella/pages/null/'
 const pay = r => require.ensure([], () => r(require('@/module/umbrella/pages/pay_deposit/children/pay')), 'pay_deposit')
 const bindBC = r => require.ensure([], () => r(require('@/module/umbrella/pages/pay_deposit/children/bind_bc')), 'pay_deposit')
 const userInfo = r => require.ensure([], () => r(require('@/module/umbrella/pages/userinfo')), 'userinfo')
+const main = r => require.ensure([], () => r(require('@/module/umbrella/pages/main')), 'main')
 const tradingRecord = r => require.ensure([], () => r(require('@/module/umbrella/pages/userinfo/children/trading_record')), 'userinfo')
 const borrowedRecord = r => require.ensure([], () => r(require('@/module/umbrella/pages/userinfo/children/borrowed_record')), 'userinfo')
 const recharge = r => require.ensure([], () => r(require('@/module/umbrella/pages/userinfo/children/recharge')), 'userinfo')
 const feeState = r => require.ensure([], () => r(require('@/module/umbrella/pages/userinfo/children/fee_state')), 'userinfo')
 const useState = r => require.ensure([], () => r(require('@/module/umbrella/pages/userinfo/children/use_state')), 'userinfo')
+const uusReturn = r => require.ensure([], () => r(require('@/module/umbrella/pages/userinfo/children/use_state/children/uus_return')), 'userinfo')
+const uusBorrow = r => require.ensure([], () => r(require('@/module/umbrella/pages/userinfo/children/use_state/children/uus_borrow')), 'userinfo')
+const answerQ = r => require.ensure([], () => r(require('@/module/umbrella/pages/userinfo/children/use_state/children/answer_q')), 'userinfo')
 const set = r => require.ensure([], () => r(require('@/module/umbrella/pages/userinfo/children/set')), 'userinfo')
 const setIndex = r => require.ensure([], () => r(require('@/module/umbrella/pages/userinfo/children/set/children/index')), 'userinfo')
 const aboutOUR = r => require.ensure([], () => r(require('@/module/umbrella/pages/userinfo/children/set/children/about_our')), 'userinfo')
@@ -150,7 +154,25 @@ export default new Router({
             {
               path: 'usestate',
               name: 'usestate',
-              component: useState
+              component: useState,
+              redirect: 'usestate/answerq',
+              children: [
+                {
+                  path: 'uusreturn',
+                  name: 'uusreturn',
+                  component: uusReturn
+                },
+                {
+                  path: 'uusborrow',
+                  name: 'uusborrow',
+                  component: uusBorrow
+                },
+                {
+                  path: 'answerq',
+                  name: 'answerq',
+                  component: answerQ
+                }
+              ]
             },
             {
               path: 'set',
@@ -170,6 +192,11 @@ export default new Router({
               ]
             }
           ]
+        },
+        {
+          path: 'main',
+          name: 'main',
+          component: main
         }
       ]
     }

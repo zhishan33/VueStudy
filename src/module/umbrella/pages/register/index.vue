@@ -1,7 +1,7 @@
 <template>
 	<div class="register" v-title="{title:'注册'}">
 		<header>
-			<img src="../../images/logo@2x.png" />
+			<img src="../../../../assets/logo.png" />
 		</header>
 		<section>
 			<form action="" method="post">
@@ -23,10 +23,16 @@
 					</p>
 					<p class="warning">{{warning}}</p>
 					<button v-on:click="invalidForm" class="submit" v-bind:class={disable:disable,active:isActiveSubmit} type="button">注册</button>
+					<footer>
+						已有账号？<button @click="trigger" type="button">立即登录</button>
+					</footer>
 				</template>
 				<template v-else>
 					<p class="warning">{{warning}}</p>
 					<button v-on:click="invalidFormLogin" class="submit" v-bind:class={disable:disable,active:isActiveSubmit} type="button">登录</button>
+					<footer>
+						没有账号？<button @click="trigger" type="button">立即注册</button>
+					</footer>
 				</template>
 			</form>
 		</section>
@@ -119,7 +125,7 @@ export default {
       } else {
         this.warning = ''
       }
-      this.$router.push('userinfo')
+      this.$router.push('main')
     },
     smsAction: function () {
       if (this.userphonevalue.length === 11) {
@@ -193,6 +199,9 @@ export default {
         self.$store.commit('SHOW_WARNING_TIP')
         clearTimeout(idTime)
       }, 2000)
+    },
+    trigger () {
+      this.$store.commit('TRIGGER_LOGIN')
     }
   },
   mounted: function () {
@@ -334,5 +343,14 @@ export default {
 	p a {
 		color: $pramary;
 		text-decoration: none;
+	}
+	.register {
+		footer {
+			padding: 8% 0 0;
+			& > button {
+				font-size: inherit;
+				color: hsla(200, 100%, 50%, 1);
+			}
+		}
 	}
 </style>

@@ -3,7 +3,7 @@
 $dcolor: #eee;
 
 html {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 body, section, header, footer, ul, li, p, div, form, input, label, button, span, a, h1, h2, h3, h4, h5, h6 ,dl, dt, dd{
@@ -32,3 +32,26 @@ input::-webkit-input-placeholder {
     font-family: inherit;
     font-size: 1rem;
 }
+
+@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+    & {
+        @each $property in $properties { 
+            #{$property}: $min-value; 
+        } 
+        @media screen and (min-width: $min-vw) { 
+            @each $property in $properties { 
+                #{$property}: calc(#{$min-value} + #{strip-units($max-value - $min-value)} * ((100vw - #{$min-vw}) / #{strip-units($max-vw - $min-vw)})); }
+        } 
+        @media screen and (min-width: $max-vw) { 
+            @each $property in $properties { #{$property}: $max-value; }
+        } 
+    } 
+}
+
+// SCSS变量
+ $minScreen: 20rem; // $min-vw 
+ $maxScreen: 50rem; // $max-vw 
+ $minFont: .8rem; // $min-value 
+ $maxFont: 2rem; // $max-value 
+ :root { @include fluid-type(font-size, $minScreen, $maxScreen, $minFont, $maxFont); }
+

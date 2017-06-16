@@ -1,5 +1,5 @@
 <template>
-	<div class="map" id="map" v-title="{title:'共享伞'}">
+	<div class="map" id="map" v-title="{title:'Vue Study'}">
 		<router-view></router-view>
 	</div>
 </template>
