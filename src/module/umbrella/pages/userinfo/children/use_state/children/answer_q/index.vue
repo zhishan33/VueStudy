@@ -1,25 +1,41 @@
 <template>
 	<section class="answer-q">
 		<dl>
-			<dt>1、情况一如何处理<span>-</span></dt>
+			<dt>1、情况一如何处理<span @click="switchEl" id="firstEl">-</span></dt>
 			<dd>遇到情况一的时候应该怎么去处理，咨询。遇到情况一的时候应该怎么去处理，咨询。遇到情况一的时候应该怎么去处理，咨询。遇到情况一的时候应该怎么去处理，咨询。遇到情况一的时候应该怎么去处理，咨询。遇到情况一的时候应该怎么去处理，咨询。</dd>
 		</dl>
 		<dl>
-			<dt>2、情况一如何处理<span>+</span></dt>
+			<dt>2、情况一如何处理<span @click="switchEl">+</span></dt>
 			<dd>遇到情况一的时候应该怎么去处理，咨询。遇到情况一的时候应该怎么去处理，咨询。遇到情况一的时候应该怎么去处理，咨询。遇到情况一的时候应该怎么去处理，咨询。遇到情况一的时候应该怎么去处理，咨询。遇到情况一的时候应该怎么去处理，咨询。</dd>
 		</dl>
 		<dl>
-			<dt>3、情况一如何处理</dt>
+			<dt>3、情况一如何处理<span @click="switchEl">+</span></dt>
 			<dd>遇到情况一的时候应该怎么去处理，咨询。遇到情况一的时候应该怎么去处理，咨询。遇到情况一的时候应该怎么去处理，咨询。遇到情况一的时候应该怎么去处理，咨询。遇到情况一的时候应该怎么去处理，咨询。遇到情况一的时候应该怎么去处理，咨询。</dd>
 		</dl>
 		<dl>
-			<dt>4、情况一如何处理</dt>
+			<dt>4、情况一如何处理<span @click="switchEl">+</span></dt>
 			<dd>遇到情况一的时候应该怎么去处理，咨询。遇到情况一的时候应该怎么去处理，咨询。遇到情况一的时候应该怎么去处理，咨询。遇到情况一的时候应该怎么去处理，咨询。遇到情况一的时候应该怎么去处理，咨询。遇到情况一的时候应该怎么去处理，咨询。</dd>
 		</dl>
 	</section>
 </template>
 
 <script>
+export default {
+  data () {
+    return {
+      showEl: document.getElementById('firstEl')
+    }
+  },
+  methods: {
+    switchEl (e) {
+      this.showEl.parentNode.nextElementSibling.style.display = 'none'
+      this.showEl.innerHTML = '+'
+      e.currentTarget.parentNode.nextElementSibling.style.display = 'block'
+      e.currentTarget.innerHTML = '-'
+      this.showEl = e.currentTarget
+    }
+  }
+}
 </script>
 
 <style lang="scss">
